@@ -1,0 +1,40 @@
+{% extends 'market/base.html' %}
+{% load static %}
+{% block title %}
+market
+{% endblock title %}
+
+
+
+{% block content %}
+  <div class="shop m-5" id="shop">
+    <!-- farm product will be display here dynamically -->
+    {% for product in products  %}
+    <div class="item">
+      <img width="212" src="{{product.product_image.url}}" alt="" class="w-100" style="height: 200px">
+            <div class="details">
+              <h3>{{product.product_name}}</h3>
+              <div class="dd">
+                <p class="m-0">{{product.description|truncatechars:45}}</p>
+                <div class="d-flex justify-content-end"><a href="#" class="text-danger">Read more</a></div>
+              </div>
+              <div class="price-quantity">
+                <h3>₦{{product.price}}</h3>
+                <div class="buttons">
+                  <button
+                    type="button"
+                    class="btn btn-outline-secondary ms-1"
+                  >
+                    Cart
+                  </button>
+                  
+                </div>
+              </div>
+            </div>
+    </div>
+    {% endfor %}
+{% endblock content %}
+
+
+
+
